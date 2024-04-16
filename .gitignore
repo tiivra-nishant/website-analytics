@@ -1,0 +1,5 @@
+# Reports folder
+reports/
+
+# MacOS files
+.DS_Store
