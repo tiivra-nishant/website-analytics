@@ -1,7 +1,7 @@
 import csv
 
-def get_ga_numbers(path):
-    # path = './reports/' + week_info + '/ga.csv'
+def get_ga_numbers(week_info):
+    path = './reports/' + week_info + '/ga.csv'
 
     with open(path) as csv_file:
         reader = csv.reader(csv_file, delimiter=' ', quotechar='|')

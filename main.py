@@ -7,24 +7,24 @@ def compare_clarity_numbers(previous_week_info, current_week_info):
     previous_week_sessions, previous_week_referral_sources, previous_week_pain_points = clarity.get_clarity_numbers(previous_week_info)
     current_week_sessions, current_week_referral_sources, current_week_pain_points = clarity.get_clarity_numbers(current_week_info)
 
+    print('Previous Week Referral Sources:', previous_week_referral_sources)
+    print('Current Week Referral Sources:', current_week_referral_sources)
+
 
 def compare_shopify_numbers(previous_week_info, current_week_info):
-    previous_week_path = './reports/' + previous_week_info + '/shopify.csv'
-    current_week_path = './reports/' + current_week_info + '/shopify.csv'
+    previous_week_sessions, previous_week_device_percentage_shares, previous_week_device_bounce_rate, previous_week_device_conversion_rates = shopify.get_shopify_numbers(previous_week_info)
+    current_week_sessions, current_week_device_percentage_shares, current_week_device_bounce_rate, current_week_device_conversion_rates = shopify.get_shopify_numbers(current_week_info)
 
-    previous_week_sessions, previous_week_device_percentage_shares, previous_week_device_bounce_rate, previous_week_device_conversion_rates = shopify.get_shopify_numbers(previous_week_path)
-    current_week_sessions, current_week_device_percentage_shares, current_week_device_bounce_rate, current_week_device_conversion_rates = shopify.get_shopify_numbers(current_week_path)
-
-    print(previous_week_sessions)
-    print(current_week_sessions)
+    print('Previous Week Shopify Sessions:', previous_week_sessions)
+    print('Current Week Shopify Sessions:', current_week_sessions)
 
 
 def compare_ga_numbers(previous_week_info, current_week_info):
-    previous_week_path = './reports/' + previous_week_info + '/ga.csv'
-    current_week_path = './reports/' + current_week_info + '/ga.csv'
+    previous_week_ga_values = ga.get_ga_numbers(previous_week_info)
+    current_week_ga_values = ga.get_ga_numbers(current_week_info)
 
-    previous_week_ga_values = ga.get_ga_numbers(previous_week_path)
-    current_week_ga_values = ga.get_ga_numbers(current_week_path)
+    print('Previous Week GA:', previous_week_ga_values)
+    print('Current Week GA:', current_week_ga_values)
 
 
 def main(week_info):
@@ -45,6 +45,9 @@ if __name__ == '__main__':
     previous_week_info = 'april01-07_2024'
     current_week_info = 'april08-14_2024'
 
-    # compare_clarity_numbers(previous_week_info, current_week_info)
-    # compare_shopify_numbers(previous_week_info, current_week_info)
-    # compare_ga_numbers(previous_week_info, current_week_info)
+    print('Microsoft Clarity')
+    compare_clarity_numbers(previous_week_info, current_week_info)
+    print('\nShopify Reporting')
+    compare_shopify_numbers(previous_week_info, current_week_info)
+    print('\nGoogle Analytics')
+    compare_ga_numbers(previous_week_info, current_week_info)
