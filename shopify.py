@@ -36,7 +36,7 @@ def get_shopify_numbers(week_info):
 
         # for index, row in enumerate(list_reader): print(index, ':', row)
             
-        return total_shopify_sessions, device_percentage_shares, device_bounce_rate, device_conversion_rates
+        return total_shopify_sessions, device_percentage_shares, device_bounce_rates, device_conversion_rates
 
 if __name__ == '__main__':
     get_shopify_numbers('/path/to/report')
