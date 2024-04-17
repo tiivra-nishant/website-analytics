@@ -1,7 +1,7 @@
 import csv
 
-def get_shopify_numbers(week_info):
-    path = './reports/' + week_info + '/shopify.csv'
+def get_shopify_numbers(path):
+    # path = './reports/' + week_info + '/shopify.csv'
 
     with open(path) as csv_file:
         reader = csv.reader(csv_file, delimiter=' ', quotechar='|')

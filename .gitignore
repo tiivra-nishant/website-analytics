@@ -1,3 +1,6 @@
+# Cache Folders
+__pycache__/
+
 # Reports folder
 reports/
 

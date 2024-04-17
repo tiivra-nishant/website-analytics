@@ -1,7 +1,7 @@
 import csv
 
-def get_ga_numbers(week_info):
-    path = './reports/' + week_info + '/ga.csv'
+def get_ga_numbers(path):
+    # path = './reports/' + week_info + '/ga.csv'
 
     with open(path) as csv_file:
         reader = csv.reader(csv_file, delimiter=' ', quotechar='|')
@@ -24,7 +24,7 @@ def get_ga_numbers(week_info):
 
         # Data numbers
         print('{Step Name: [Completions, Completion Rate, Abandonments, Abandonment Rate]}')
-        print('Google Analytics Details:', total_ga_values)
+        print('Conversion Funnel:', total_ga_values)
 
         # for index, row in enumerate(stat_list): print(index, ':', row)
     

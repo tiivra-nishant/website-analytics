@@ -1,7 +1,7 @@
 import csv
 
-def get_clarity_numbers(week_info):
-    path = './reports/' + week_info + '/clarity.csv'
+def get_clarity_numbers(path):
+    # path = './reports/' + week_info + '/clarity.csv'
 
     with open(path) as csv_file:
         reader = csv.reader(csv_file, delimiter=' ', quotechar='|')
