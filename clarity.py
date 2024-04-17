@@ -7,6 +7,8 @@ def get_clarity_numbers(path):
         reader = csv.reader(csv_file, delimiter=' ', quotechar='|')
         list_reader = list(reader)
 
+        # Need to modify for varying files
+        """
         sessions_with_new_users = int(list_reader[6][-1].split(',')[-1].split('"')[1])
         sessions_with_returning_users = int(list_reader[7][-1].split(',')[-1].split('"')[1])
         total_clarity_sessions = int(sessions_with_new_users + sessions_with_returning_users)
@@ -14,7 +16,7 @@ def get_clarity_numbers(path):
         clarity_referral_sources = list_reader[222:234]
         referral_sources = {'facebook': 0, 'tiivra': 0, 'instagram': 0, 'google': 0, 'linktr.ee': 0, 'youtube': 0, 'shiprocket': 0, 'meta': 0}
         clarity_referral_names, clarity_referral_numbers = [], []
-        
+
         for referral in range(len(clarity_referral_sources)):
             clarity_referral_name = str(clarity_referral_sources[referral]).split(',')[1]
             clarity_referral_names.append(''.join(clarity_referral_name.split('"')))
@@ -44,8 +46,11 @@ def get_clarity_numbers(path):
         print('Total Clarity Sessions:', total_clarity_sessions)
         print('Referral Sources:', referral_sources)
         print('Pain Points:', pain_points)
+        """
         
-        # for index, row in enumerate(list_reader): print(index, ':', row)
+        for index, row in enumerate(list_reader): print(index, ':', row)
+
+        # return total_clarity_sessions, referral_sources, pain_points
 
 if __name__ == '__main__':
-    get_clarity_numbers('/path/to/report')
+    get_clarity_numbers('./reports/april08-14_2024/clarity.csv')

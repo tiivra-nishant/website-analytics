@@ -23,10 +23,12 @@ def get_ga_numbers(path):
         total_ga_values = dict(zip(step_names, step_values))
 
         # Data numbers
-        print('{Step Name: [Completions, Completion Rate, Abandonments, Abandonment Rate]}')
-        print('Conversion Funnel:', total_ga_values)
+        # print('{Step Name: [Completions, Completion Rate, Abandonments, Abandonment Rate]}')
+        # print('Conversion Funnel:', total_ga_values)
 
         # for index, row in enumerate(stat_list): print(index, ':', row)
+
+        return total_ga_values
     
 if __name__ == '__main__':
     get_ga_numbers('/path/to/report')

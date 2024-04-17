@@ -29,12 +29,14 @@ def get_shopify_numbers(path):
             device_conversion_rates[device_category] = str(round(device_conversion*100, 2)) + '%'
 
         # Data numbers
-        print('Total Shopify Sessions:', total_shopify_sessions)
-        print('Device Percentage Share:', device_percentage_shares)
-        print('Bounce Rates:', device_bounce_rates)
-        print('Conversion Rates:', device_conversion_rates)
+        # print('Total Shopify Sessions:', total_shopify_sessions)
+        # print('Device Percentage Share:', device_percentage_shares)
+        # print('Bounce Rates:', device_bounce_rates)
+        # print('Conversion Rates:', device_conversion_rates)
 
         # for index, row in enumerate(list_reader): print(index, ':', row)
+            
+        return total_shopify_sessions, device_percentage_shares, device_bounce_rate, device_conversion_rates
 
 if __name__ == '__main__':
     get_shopify_numbers('/path/to/report')
