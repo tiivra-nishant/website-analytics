@@ -29,4 +29,4 @@ def get_ga_numbers(path):
         # for index, row in enumerate(stat_list): print(index, ':', row)
     
 if __name__ == '__main__':
-    get_ga_numbers('april01-07_2024')
+    get_ga_numbers('/path/to/report')

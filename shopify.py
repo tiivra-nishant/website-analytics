@@ -37,4 +37,4 @@ def get_shopify_numbers(path):
         # for index, row in enumerate(list_reader): print(index, ':', row)
 
 if __name__ == '__main__':
-    get_shopify_numbers('april01-07_2024')
+    get_shopify_numbers('/path/to/report')
