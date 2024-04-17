@@ -1,19 +1,33 @@
 import csv
 
-def get_clarity_numbers(path):
-    # path = './reports/' + week_info + '/clarity.csv'
+# Need to enter the indices for each week manually to prevent breaking the code
+def get_clarity_report_indices(week_info):
+    path = './reports/' + week_info + '/clarity_info.txt'
 
+    with open(path, 'r+') as text_file:
+        lines = text_file.readlines()
+        
+        first_referral_sources_index = int(lines[0].split()[-1])
+        last_referral_sources_index = int(lines[1].split()[-1])
+        first_pain_points_index = int(lines[2].split()[-1])
+        last_pain_points_index = int(lines[3].split()[-1])
+        
+    return first_referral_sources_index, last_referral_sources_index, first_pain_points_index, last_pain_points_index
+
+def get_clarity_numbers(week_info):
+    path = './reports/' + week_info + '/clarity.csv'
+    
     with open(path) as csv_file:
         reader = csv.reader(csv_file, delimiter=' ', quotechar='|')
         list_reader = list(reader)
 
-        # Need to modify for varying files
-        """
+        first_referral_sources_index, last_referral_sources_index, first_pain_points_index, last_pain_points_index = get_clarity_report_indices(week_info)
+
         sessions_with_new_users = int(list_reader[6][-1].split(',')[-1].split('"')[1])
         sessions_with_returning_users = int(list_reader[7][-1].split(',')[-1].split('"')[1])
         total_clarity_sessions = int(sessions_with_new_users + sessions_with_returning_users)
         
-        clarity_referral_sources = list_reader[222:234]
+        clarity_referral_sources = list_reader[first_referral_sources_index:last_referral_sources_index]
         referral_sources = {'facebook': 0, 'tiivra': 0, 'instagram': 0, 'google': 0, 'linktr.ee': 0, 'youtube': 0, 'shiprocket': 0, 'meta': 0}
         clarity_referral_names, clarity_referral_numbers = [], []
 
@@ -30,7 +44,7 @@ def get_clarity_numbers(path):
                 if key_one in str(key_two).lower():
                     referral_sources[key_one] += clarity_referral_data[key_two]
 
-        clarity_pain_points = list_reader[28:32]
+        clarity_pain_points = list_reader[first_pain_points_index:last_pain_points_index]
         clarity_pain_categories, clarity_pain_values = [], []
 
         for pain_point in range(len(clarity_pain_points)):
@@ -43,14 +57,13 @@ def get_clarity_numbers(path):
         pain_points = dict(zip(clarity_pain_categories, clarity_pain_values))
 
         # Data numbers 
-        print('Total Clarity Sessions:', total_clarity_sessions)
-        print('Referral Sources:', referral_sources)
-        print('Pain Points:', pain_points)
-        """
+        # print('Total Clarity Sessions:', total_clarity_sessions)
+        # print('Referral Sources:', referral_sources)
+        # print('Pain Points:', pain_points)
         
-        for index, row in enumerate(list_reader): print(index, ':', row)
+        # for index, row in enumerate(list_reader): print(index, ':', row)
 
-        # return total_clarity_sessions, referral_sources, pain_points
+        return total_clarity_sessions, referral_sources, pain_points
 
 if __name__ == '__main__':
-    get_clarity_numbers('./reports/april08-14_2024/clarity.csv')
+    get_clarity_numbers('/week-info')
