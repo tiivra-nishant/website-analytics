@@ -1,8 +1,11 @@
-# Cache Folders
+# Cache folders
 __pycache__/
 
 # Reports folder
 reports/
+
+# Test folder
+test/
 
 # MacOS files
 .DS_Store

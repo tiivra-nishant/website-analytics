@@ -43,9 +43,10 @@ def compare_clarity_numbers(previous_week_info, current_week_info):
         except ValueError:
             pain_points_delta[key] = '-'
 
-    print('Percentage Change in Number of Sessions:', week_sessions_delta, '\n')
-    print('Percentage Change in Referral Sources:', referral_sources_delta, '\n')
-    print('Percentage Change in Pain Points:', pain_points_delta, '\n')
+    # Data numbers
+    # print('Percentage Change in Number of Sessions:', week_sessions_delta, '\n')
+    # print('Percentage Change in Referral Sources:', referral_sources_delta, '\n')
+    # print('Percentage Change in Pain Points:', pain_points_delta, '\n')
 
     return week_sessions_delta, referral_sources_delta, pain_points_delta
 
@@ -85,10 +86,11 @@ def compare_shopify_numbers(previous_week_info, current_week_info):
         current_week_device_sessions_number = get_device_session_value(current_week_float_percentage_value, current_week_sessions)
         week_device_conversion_rate_delta[key] = get_delta(previous_week_device_sessions_number, current_week_device_sessions_number)
 
-    print('Percentage Change in Number of Sessions:', week_sessions_delta, '\n')
-    print('Percentage Change in Device Share:', week_device_sessions_delta, '\n')
-    print('Percentage Change in Bounce Rates:', week_device_bounce_rate_delta, '\n')
-    print('Percentage Change in Conversion Rates:', week_device_conversion_rate_delta, '\n')
+    # Data numbers
+    # print('Percentage Change in Number of Sessions:', week_sessions_delta, '\n')
+    # print('Percentage Change in Device Share:', week_device_sessions_delta, '\n')
+    # print('Percentage Change in Bounce Rates:', week_device_bounce_rate_delta, '\n')
+    # print('Percentage Change in Conversion Rates:', week_device_conversion_rate_delta, '\n')
 
     return week_sessions_delta, week_device_sessions_delta, week_device_bounce_rate_delta, week_device_conversion_rate_delta
 
@@ -133,9 +135,10 @@ def compare_ga_numbers(previous_week_info, current_week_info):
         current_week_step_conversions = get_step_conversions(current_week_ga_values, key, 0)
         week_step_conversions_delta[key] = get_delta(previous_week_step_conversions, current_week_step_conversions)
     
-    print('Percentage Change in Number of Completions:', week_completions_delta, '\n')
-    print('Percentage Change in Number of Abandonments:', week_abandonments_delta, '\n')
-    print('Percentage Change in Number of Step Conversions:', week_step_conversions_delta, '\n')
+    # Data numbers
+    # print('Percentage Change in Number of Completions:', week_completions_delta, '\n')
+    # print('Percentage Change in Number of Abandonments:', week_abandonments_delta, '\n')
+    # print('Percentage Change in Number of Step Conversions:', week_step_conversions_delta, '\n')
 
     return week_completions_delta, week_abandonments_delta, week_step_conversions_delta
 
