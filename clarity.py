@@ -27,8 +27,9 @@ def get_clarity_numbers(week_info):
         sessions_with_returning_users = int(list_reader[7][-1].split(',')[-1].split('"')[1])
         total_clarity_sessions = int(sessions_with_new_users + sessions_with_returning_users)
         
+        # Need to account for other referral sources as well - could as a separate key - 'Others'
         clarity_referral_sources = list_reader[first_referral_sources_index:last_referral_sources_index]
-        referral_sources = {'facebook': 0, 'tiivra': 0, 'instagram': 0, 'google': 0, 'linktr.ee': 0, 'youtube': 0, 'shiprocket': 0, 'meta': 0}
+        referral_sources = {'Facebook': 0, 'Tiivra': 0, 'Instagram': 0, 'Google': 0, 'Linktr.ee': 0, 'YouTube': 0, 'Shiprocket': 0, 'Meta': 0}
         clarity_referral_names, clarity_referral_numbers = [], []
 
         for referral in range(len(clarity_referral_sources)):
@@ -41,7 +42,7 @@ def get_clarity_numbers(week_info):
 
         for key_one in list(referral_sources.keys()):
             for key_two in list(clarity_referral_data.keys()):
-                if key_one in str(key_two).lower():
+                if key_one.lower() in str(key_two).lower():
                     referral_sources[key_one] += clarity_referral_data[key_two]
 
         clarity_pain_points = list_reader[first_pain_points_index:last_pain_points_index]
