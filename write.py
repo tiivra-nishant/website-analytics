@@ -10,7 +10,7 @@ def convert_to_csv(dictionary):
 
     return csv_dictionary
 
-def write(previous_week_info, current_week_info):
+def write_csv(previous_week_info, current_week_info):
     clarity_week_sessions_delta, \
         clarity_referral_sources_delta, \
             clarity_pain_points_delta = compare.compare_clarity_numbers(previous_week_info, current_week_info)
@@ -68,4 +68,4 @@ if __name__ == '__main__':
     previous_week_info = 'april01-07_2024'
     current_week_info = 'april08-14_2024'
 
-    write(previous_week_info, current_week_info)
+    write_csv(previous_week_info, current_week_info)
