@@ -4,6 +4,9 @@ __pycache__/
 # Reports folder
 reports/
 
+# Output folder
+output/
+
 # Test folder
 test/
 
