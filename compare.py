@@ -1,4 +1,6 @@
-import clarity, ga, shopify
+import clarity
+import shopify
+import ga
 
 def get_delta(previous_number, current_number):
     try:
@@ -24,8 +26,13 @@ def get_delta(previous_number, current_number):
 
 # Need to adjust the format in the primary clarity.py file to adjust for additional whitespace
 def compare_clarity_numbers(previous_week_info, current_week_info):
-    previous_week_sessions, previous_week_referral_sources, previous_week_pain_points = clarity.get_clarity_numbers(previous_week_info)
-    current_week_sessions, current_week_referral_sources, current_week_pain_points = clarity.get_clarity_numbers(current_week_info)
+    previous_week_sessions, \
+        previous_week_referral_sources, \
+            previous_week_pain_points = clarity.get_clarity_numbers(previous_week_info)
+    
+    current_week_sessions, \
+        current_week_referral_sources, \
+            current_week_pain_points = clarity.get_clarity_numbers(current_week_info)
 
     referral_sources_delta = {}
     pain_points_delta = {}
@@ -51,8 +58,15 @@ def compare_clarity_numbers(previous_week_info, current_week_info):
     return week_sessions_delta, referral_sources_delta, pain_points_delta
 
 def compare_shopify_numbers(previous_week_info, current_week_info):
-    previous_week_sessions, previous_week_device_percentage_shares, previous_week_device_bounce_rate, previous_week_device_conversion_rates = shopify.get_shopify_numbers(previous_week_info)
-    current_week_sessions, current_week_device_percentage_shares, current_week_device_bounce_rate, current_week_device_conversion_rates = shopify.get_shopify_numbers(current_week_info)
+    previous_week_sessions, \
+        previous_week_device_percentage_shares, \
+            previous_week_device_bounce_rate, \
+                previous_week_device_conversion_rates = shopify.get_shopify_numbers(previous_week_info)
+    
+    current_week_sessions, \
+        current_week_device_percentage_shares, \
+            current_week_device_bounce_rate, \
+                current_week_device_conversion_rates = shopify.get_shopify_numbers(current_week_info)
 
     def get_float_percentage_value(string):
         return float(str(string).strip('%'))/100
@@ -145,10 +159,3 @@ def compare_ga_numbers(previous_week_info, current_week_info):
 if __name__ == '__main__':
     previous_week_info = 'april01-07_2024'
     current_week_info = 'april08-14_2024'
-
-    print('-----------------\nMicrosoft Clarity\n-----------------')
-    compare_clarity_numbers(previous_week_info, current_week_info)
-    print('\n-----------------\nShopify Reporting\n-----------------')
-    compare_shopify_numbers(previous_week_info, current_week_info)
-    print('\n-----------------\nGoogle Analytics\n-----------------')
-    compare_ga_numbers(previous_week_info, current_week_info)

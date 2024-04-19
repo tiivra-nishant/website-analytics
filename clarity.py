@@ -21,7 +21,10 @@ def get_clarity_numbers(week_info):
         reader = csv.reader(csv_file, delimiter=' ', quotechar='|')
         list_reader = list(reader)
 
-        first_referral_sources_index, last_referral_sources_index, first_pain_points_index, last_pain_points_index = get_clarity_report_indices(week_info)
+        first_referral_sources_index, \
+            last_referral_sources_index, \
+                first_pain_points_index, \
+                    last_pain_points_index = get_clarity_report_indices(week_info)
 
         sessions_with_new_users = int(list_reader[6][-1].split(',')[-1].split('"')[1])
         sessions_with_returning_users = int(list_reader[7][-1].split(',')[-1].split('"')[1])
@@ -29,7 +32,17 @@ def get_clarity_numbers(week_info):
         
         # Need to account for other referral sources as well - could as a separate key - 'Others'
         clarity_referral_sources = list_reader[first_referral_sources_index:last_referral_sources_index]
-        referral_sources = {'Facebook': 0, 'Tiivra': 0, 'Instagram': 0, 'Google': 0, 'Linktr.ee': 0, 'YouTube': 0, 'Shiprocket': 0, 'Meta': 0}
+        referral_sources = {
+            'Facebook': 0, 
+            'Tiivra': 0, 
+            'Instagram': 0, 
+            'Google': 0, 
+            'Linktr.ee': 0, 
+            'YouTube': 0, 
+            'Shiprocket': 0, 
+            'Meta': 0
+        }
+        
         clarity_referral_names, clarity_referral_numbers = [], []
 
         for referral in range(len(clarity_referral_sources)):

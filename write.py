@@ -62,7 +62,7 @@ def write(previous_week_info, current_week_info):
         csv_file.write('-- Step Conversions Delta --\n')
         csv_file.write(ga_week_step_conversions_delta)
 
-        
+    print('Done, CSV file located in /output/output.csv')    
 
 if __name__ == '__main__':
     previous_week_info = 'april01-07_2024'
